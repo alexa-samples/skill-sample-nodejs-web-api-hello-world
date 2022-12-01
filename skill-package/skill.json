@@ -1,0 +1,31 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Web API Sample Skill",
+          "summary": "Hello World with Alexa Web API",
+          "description": "This is a deployment of the Alexa Web API sample skill.",
+          "examplePhrases": [
+            "Alexa open web api hello world"
+          ],
+          "keywords": []
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "This skill is only intended for development and testing.",
+      "category": "GAMES",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "interfaces": [
+          {
+            "type": "ALEXA_PRESENTATION_HTML"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}

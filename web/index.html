@@ -1,0 +1,97 @@
+<!-- 
+  Copyright 2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+  SPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0
+  Licensed under the Amazon Software License  http://aws.amazon.com/asl/
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Alexa!</title>
+  
+  <!-- Most games will likely want to be "full screen" non scrolling applications that don't scale when pinched -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    
+  <!-- If possible, inlining your CSS in your HTML helps reduce startup time -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #eef; 
+      font-family: "Amazon Ember", Arial, Helvetica, sans-serif;
+      padding: 5vh 5vw;
+      font-size: 4vh;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 2vh 3vw;
+      font-size: 100%;
+      border-radius: 2vh;
+      background-color: rgba(39, 89, 253, 0.98);
+      color: white;
+      margin-bottom: 0.5em;
+      margin-right: 0.5em;
+      cursor: pointer;
+      box-shadow: 4px 4px rgba(0,20,80,0.3);
+    }
+    
+    i {
+      color: blue;
+    }
+    
+    #interactions {
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    
+    #debugElement {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      top: 50vh;
+      font-size: 14px;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre;
+      background: #112;
+      color: #fff;
+      border: 1px solid #aaa;
+      padding: 4px;
+      line-height: 16px;
+      overflow: auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>
+    Hello World
+  </h1>
+
+  <div id="interactions">
+    <div id="helloButton" class="button">Send "Hello" to the skill backend</div>
+    <div id="micButton" class="button">Try to open the microphone</div>
+ 
+    <div id="hints"></div>
+  </div>
+
+  <div id="debugElement"></div>
+
+  <script src="https://cdn.html.games.alexa.a2z.com/alexa-html/latest/alexa-html.js"></script>
+  <script src="./index.js"></script>
+  
+</body>
+
+</html>
