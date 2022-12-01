@@ -1,0 +1,50 @@
+{
+    "interactionModel": {
+      "languageModel": {
+        "invocationName": "web api hello world",
+        "intents": [
+          {
+            "name": "AMAZON.CancelIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.HelpIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.StopIntent",
+            "samples": []
+          },
+          {
+            "name": "HelloWorldIntent",
+            "slots": [],
+            "samples": [
+              "hello"             
+            ]
+          },
+          {
+            "name": "AMAZON.NavigateHomeIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.FallbackIntent",
+            "samples": []
+          },
+          {
+            "name": "SendMessageIntent",
+            "slots": [
+              {
+                "name": "message",
+                "type": "AMAZON.SearchQuery"
+              }
+            ],
+            "samples": [
+              "Can you repeat {message}"
+            ]
+          }
+        ],
+        "types": []
+      }
+    },
+    "version": "7"
+  }

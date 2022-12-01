@@ -1,0 +1,31 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "description": "Sample Full Description",
+          "examplePhrases": [
+            "Alexa open web api hello world"
+          ],
+          "keywords": [],
+          "name": "skill-sample-nodejs-web-api-helloworld",
+          "summary": "Hello World with Alexa WebAPI"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "interfaces": [
+          {
+            "type": "ALEXA_PRESENTATION_HTML"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}
