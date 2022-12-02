@@ -1,5 +1,10 @@
 # alexaskill-webapi-helloworld
 
+This is minimal sample of using the Alexa Web API for Games feature. It is laid out in a format compatible with the ASK command line interface tool. For more information, see: https://developer.amazon.com/en-US/docs/alexa/smapi/quick-start-alexa-skills-kit-command-line-interface.html
+
+## Default Profile
+This sample is configured to deploy to your default ask cli profile. If you opted not to have a default profile, modify the ask-resources.json file to align the profile name with the profile you're like to deploy to.
+
 
 ## Features
 A simple webapi hello world skill which illustrates  the following core concepts:

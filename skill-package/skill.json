@@ -3,18 +3,18 @@
     "publishingInformation": {
       "locales": {
         "en-US": {
-          "description": "Sample Full Description",
+          "name": "Web API Sample Skill",
+          "summary": "Hello World with Alexa Web API",
+          "description": "This is a deployment of the Alexa Web API sample skill.",
           "examplePhrases": [
             "Alexa open web api hello world"
           ],
-          "keywords": [],
-          "name": "skill-sample-nodejs-web-api-helloworld",
-          "summary": "Hello World with Alexa WebAPI"
+          "keywords": []
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "KNOWLEDGE_AND_TRIVIA",
+      "testingInstructions": "This skill is only intended for development and testing.",
+      "category": "GAMES",
       "distributionCountries": []
     },
     "apis": {
@@ -23,7 +23,10 @@
           {
             "type": "ALEXA_PRESENTATION_HTML"
           }
-        ]
+        ],
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-west-2:085202703559:function:ask-skill-sample-nodejs-web-api-AlexaSkillFunction-Akmla6pjmQfn"
+        }
       }
     },
     "manifestVersion": "1.0"

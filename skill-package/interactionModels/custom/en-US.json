@@ -19,7 +19,11 @@
             "name": "HelloWorldIntent",
             "slots": [],
             "samples": [
-              "hello"             
+              "hello",
+              "hello world",
+              "hello there",
+              "hello you",
+              "hello Alexa"
             ]
           },
           {
@@ -31,7 +35,7 @@
             "samples": []
           },
           {
-            "name": "SendMessageIntent",
+            "name": "RepeatAfterMeIntent",
             "slots": [
               {
                 "name": "message",
@@ -39,7 +43,10 @@
               }
             ],
             "samples": [
-              "Can you repeat {message}"
+              "can you repeat {message}",
+              "repeat {message}",
+              "repeat after me {message}",
+              "say {message}"
             ]
           }
         ],
