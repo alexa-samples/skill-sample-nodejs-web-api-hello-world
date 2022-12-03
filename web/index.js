@@ -23,6 +23,7 @@ function printDebug( msg ) {
 
 /** @type {Alexa.AlexaClient} */
 let alexaClient;
+let wakeWord = "Alexa";
 
 function beginApp() {
 printDebug('Beginning Alexa.create');
@@ -33,6 +34,14 @@ Alexa.create({version: '1.1'})
             alexaClient.skill.onMessage(messageReceivedCallback);
             printDebug(`Alexa is ready :) Received initial data:`);
             printDebug(args.message);
+            if ( args.message.hint ) {
+                const match = /try\s+\"(\w*),/gi.exec(args.message.hint);
+                if ( match ) {
+                    printDebug(`discovered wake word: ${match[1]}`);
+                    wakeWord = match[1];
+                } 
+            }
+            setHints();
         } else {
             printDebug(`Alexa failed to initialize, code: ${args.code}`);
         }
@@ -46,7 +55,19 @@ Alexa.create({version: '1.1'})
 // to avoid blocking the first paint, we start code after the first frame
 requestAnimationFrame(beginApp);
 
-     
+
+
+/**
+ * Setup the hints display on screen procedurally, so we can 
+ * interpolate in the wakeword
+ */
+function setHints() {
+    document.getElementById('hints').innerHTML = 
+        `<p>Try saying <i>"${wakeWord}, Hello"</i>,</p>
+        <p>or <i>"${wakeWord}, can you repeat..."</i> followed by something you'd like Alexa to say.</p>`
+}
+
+
 
 /**
  * Implements receiving a message from your skill backend

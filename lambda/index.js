@@ -37,7 +37,8 @@ const LaunchRequestHandler = {
             const startDirective = {
                 type:"Alexa.Presentation.HTML.Start",
                 data: {
-                    "someKey": "Initial start up information"
+                    "someKey": "Initial start up information",
+                    "hintSource": "hello"
                 },
                 request: {
                     uri: `${process.env.WEB_URL}`,
@@ -45,7 +46,15 @@ const LaunchRequestHandler = {
                 },
                 configuration: {
                    "timeoutInSeconds": 300
-            }}
+                },
+                transformers: [
+                    {
+                        inputPath: "hintSource",
+                        outputName: "hint",
+                        transformer: "textToHint"
+                    }
+                ]
+            }
             
             speech.push('Loading the web app.');
             return handlerInput.responseBuilder
