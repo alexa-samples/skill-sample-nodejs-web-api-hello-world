@@ -11,10 +11,10 @@ const Alexa = require('ask-sdk-core');
 const Util = require('./util.js');
 
 /** Expect the full location of the web app to be provided as an environment variable */
-const webAppURL = process.env.WEB_URL;
+const webAppRoot = process.env.WEBAPP_S3_BUCKET_ROOT;
 
-if ( webAppURL ) {
-    console.log(`will start HTML web app at ${webAppURL}`)
+if ( webAppRoot ) {
+    console.log(`will start HTML web app at ${webAppRoot}`)
 } else {
     console.error(`*** ERROR *** No value specified in the WEB_URL environment varialbe, web app location unknown`)
 }
@@ -41,7 +41,7 @@ const LaunchRequestHandler = {
                     "hintSource": "hello"
                 },
                 request: {
-                    uri: `${process.env.WEB_URL}`,
+                    uri: `${webAppRoot}/index.html`,
                     method: "GET"
                 },
                 configuration: {

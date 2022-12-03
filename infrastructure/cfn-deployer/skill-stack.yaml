@@ -47,6 +47,14 @@ Resources:
       Role: !GetAtt AlexaSkillIAMRole.Arn
       MemorySize: 512
       Timeout: 60
+      Environment: 
+        Variables:
+          WEBAPP_S3_BUCKET_ROOT: !Join
+            - ''
+            - - 'https://'
+              - !GetAtt
+                - WebAppBucket
+                - RegionalDomainName
   AlexaSkillFunctionEventPermission:
     Type: AWS::Lambda::Permission
     Properties:
@@ -66,7 +74,34 @@ Resources:
     Properties:
       LogGroupName: !Sub /aws/lambda/${AlexaSkillFunction}
       RetentionInDays: 14
+  WebAppBucket:
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: Delete
+    Properties: 
+      AccessControl : PublicRead
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - 'Authorization'
+            AllowedMethods:
+              - GET
+              - HEAD
+            AllowedOrigins:
+              - '*'
+            Id: AllowCrossOrigin
+            MaxAge: 3600
 Outputs:
   SkillEndpoint:
     Description: LambdaARN for the regional endpoint
     Value: !GetAtt AlexaSkillFunction.Arn
+  WebAppBucketName:
+    Description: Generated bucket name for web app hosted on S3
+    Value: !Ref WebAppBucket
+  WebAppURLRoot:
+    Description: Root URL for web app hosted on S3
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - WebAppBucket
+          - RegionalDomainName

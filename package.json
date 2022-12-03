@@ -1,0 +1,12 @@
+{
+  "name": "web-api-hello-world",
+  "version": "1.0.0",
+  "description": "A deploy ready sample of using the Alexa Web API For Games",
+  "main": "deploy-webapp.js",
+  "scripts": {
+    "deploy": "ask deploy && node deploy-webapp.js",
+    "deploy-webapp": "node deploy-webapp.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
