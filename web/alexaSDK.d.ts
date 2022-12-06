@@ -290,4 +290,4 @@ declare module Alexa {
 /**
  * Global Alexa object, created when you include the Alexa Web API js file in your HTML page
  */
-declare const Alexa: AlexaSDK.Alexa;
+declare const Alexa: Alexa.Alexa;
