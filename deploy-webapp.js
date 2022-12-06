@@ -65,12 +65,14 @@ function getArgument( name, defaultValue ) {
   }
 
   const profileName = getArgument( '-p', 'default' );
+  const sourceDirectory = './web';
   
   console.log( `==================== Deploy S3 Web App ====================` );
   console.log( `found bucket from CloudFormation: ${bucketName}, starting deployment to AWS profile ${profileName}` );
+   
   
   try {
-    execSync(`aws s3 sync ./web s3://${bucketName} --cache-control "no-cache" --acl public-read --dryrun --profile ${profileName}`, {stdio:'inherit'});
+    execSync(`aws s3 sync ${sourceDirectory} s3://${bucketName} --cache-control "no-cache" --acl public-read --profile ${profileName}`, {stdio:'inherit'});
   } catch (err) {
     console.error(`s3 deployment failed, see output above for details. If aws cli could not locate credentials, do you have a valid default profile? If not, did you mean to run this script with the -p flag to specify a non default one?`);
     return;
