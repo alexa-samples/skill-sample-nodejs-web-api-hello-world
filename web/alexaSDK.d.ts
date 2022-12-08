@@ -1,5 +1,5 @@
 
-export declare module AlexaSDK {
+declare module Alexa {
 
   export interface MicrophoneCapabilities {
     /**
@@ -83,7 +83,7 @@ export declare module AlexaSDK {
      * @param message JSON to deliver to your skill backend
      * @param callback Function that will be called to report the status of transmission
      */
-    sendMessage( message: any, callback?: MessageSendResult ): Skill;
+    sendMessage( message: any, callback?: (result: MessageSendResult) => void ): Skill;
   }
 
   export interface Speech {
@@ -101,7 +101,7 @@ export declare module AlexaSDK {
 
 
 
-  export declare type MicrophoneOpenedError = "microphone-already-open" | "request-open-unsupported" | "too-many-requests" | "unknown";
+  export type MicrophoneOpenedError = "microphone-already-open" | "request-open-unsupported" | "too-many-requests" | "unknown";
 
   export interface MicrophoneOpenOptions {
     /**
@@ -139,7 +139,12 @@ export declare module AlexaSDK {
   }
 
 
-
+  /**
+   * An AlexaClient represents a live connection to an Alexa skill endpoint. It is 
+   * created by calling the `Alexa.create` global function from within a web app 
+   * that is launched on an Alexa device, from an Alexa skill session, via the
+   * Alexa.Pesentation.HTML.Start directive. 
+   */
   export interface AlexaClient {
     /**
      * Version of the loaded Alexa client library
@@ -231,7 +236,7 @@ export declare module AlexaSDK {
 
 
 
-  export declare type MessageActions = "alexa-html-ready" | "message-to-html" | "tts-started" | "tts-stopped" | "mic-event" | "mic-requested-event" | "memory-available";
+  export type MessageActions = "alexa-html-ready" | "message-to-html" | "tts-started" | "tts-stopped" | "mic-event" | "mic-requested-event" | "memory-available";
 
   export interface SystemMessage {
     action: MessageActions;
@@ -243,7 +248,7 @@ export declare module AlexaSDK {
    */
   export interface MessageProvider {
     receive( cb: (msg: SystemMessage) => void ) : void;
-    send( cmd: string, payload?: any ) : Promise<SendResult>;
+    send( cmd: string, payload?: any ) : Promise<MessageSendResult>;
   }
 
   export interface CreateClientOptions {
@@ -282,10 +287,7 @@ export declare module AlexaSDK {
   }
 }
 
-export declare global {
-  /**
-   * Global Alexa object, created when you include the Alexa Web API js file in your HTML page
-   */
-  const Alexa: AlexaSDK.Alexa;
-}
-
+/**
+ * Global Alexa object, created when you include the Alexa Web API js file in your HTML page
+ */
+declare const Alexa: Alexa.Alexa;
