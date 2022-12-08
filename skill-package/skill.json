@@ -23,10 +23,7 @@
           {
             "type": "ALEXA_PRESENTATION_HTML"
           }
-        ],
-        "endpoint": {
-          "uri": "arn:aws:lambda:us-west-2:085202703559:function:ask-skill-sample-nodejs-web-api-AlexaSkillFunction-Akmla6pjmQfn"
-        }
+        ]
       }
     },
     "manifestVersion": "1.0"

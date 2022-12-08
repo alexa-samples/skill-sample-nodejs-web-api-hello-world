@@ -31,7 +31,7 @@ function getArgument( name, defaultValue ) {
     throw new Error("failed to load ask-states.json Have you successfully executed ask deploy yet?");
   }
   
-  const profile = askStates.profiles.subagio;
+  const profile = askStates.profiles.default;
   if ( !profile ) {
     throw new Error("failed to obtain profile object. Did you specify the right one?");
   }
@@ -61,7 +61,7 @@ function getArgument( name, defaultValue ) {
     }
   });
   if (!bucketName) {
-    throw new Error("Did not find the outptu WebAppBucketName. Did you modify the CloudFormation file?")
+    throw new Error("Did not find the outputs WebAppBucketName. Did you modify the CloudFormation file?")
   }
 
   const profileName = getArgument( '-p', 'default' );
