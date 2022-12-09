@@ -8,7 +8,6 @@
  * session persistence, api calls, and more.
  * */
 const Alexa = require('ask-sdk-core');
-const Util = require('./util.js');
 
 /** Expect the full location of the web app to be provided as an environment variable */
 const webAppRoot = process.env.WEBAPP_S3_BUCKET_ROOT;
