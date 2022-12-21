@@ -1,57 +1,57 @@
 {
-    "interactionModel": {
-      "languageModel": {
-        "invocationName": "web api hello world",
-        "intents": [
-          {
-            "name": "AMAZON.CancelIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.HelpIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.StopIntent",
-            "samples": []
-          },
-          {
-            "name": "HelloWorldIntent",
-            "slots": [],
-            "samples": [
-              "hello",
-              "hello world",
-              "hello there",
-              "hello you",
-              "hello Alexa"
-            ]
-          },
-          {
-            "name": "AMAZON.NavigateHomeIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.FallbackIntent",
-            "samples": []
-          },
-          {
-            "name": "RepeatAfterMeIntent",
-            "slots": [
-              {
-                "name": "message",
-                "type": "AMAZON.SearchQuery"
-              }
-            ],
-            "samples": [
-              "can you repeat {message}",
-              "repeat {message}",
-              "repeat after me {message}",
-              "say {message}"
-            ]
-          }
-        ],
-        "types": []
-      }
-    },
-    "version": "7"
-  }
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "web api hello world",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "hello world",
+            "hello there",
+            "hello you",
+            "hello Alexa"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "RepeatAfterMeIntent",
+          "slots": [
+            {
+              "name": "message",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "can you repeat {message}",
+            "repeat {message}",
+            "repeat after me {message}",
+            "say {message}"
+          ]
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "7"
+}
