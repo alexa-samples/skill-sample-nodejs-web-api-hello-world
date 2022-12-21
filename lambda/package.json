@@ -1,13 +1,13 @@
 {
-    "name": "web-api-hello-world-lambda",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {},
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "ask-sdk-core": "^2.6.0",
-      "ask-sdk-model": "^1.18.0"
-    }
+  "version": "1.0.0",
+  "name": "web-api-hello-world-lambda",
+  "author": "Amazon Alexa",
+  "license": "SEE LICENSE in LICENSE",
+  "description": "lambda endpoint for the web-api-hello-world",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "ask-sdk-core": "^2.6.0",
+    "ask-sdk-model": "^1.18.0"
   }
+}
