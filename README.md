@@ -31,6 +31,19 @@ This sample is configured to deploy to your `default` ask cli and aws cli profil
 
 ## FAQs
 
+
+### OK, I've deployed the sample, what can I do now?
+
+* Change your skill's name. Look at `./skill-package/interactionModels/custom/en-US.json`. This is the language model for your skill when played in the US English language. Near the top, look for `invocationName` and change it! Run ask deploy to apply the change. Changing invocation name specifically can take a minute or two to apply to your testing account.
+* Add something to say! The intents block in `./skill-package/interactionModels/custom/en-US.json` contains all of the utterances your skill will be able to recognize. It is populated with a few required Amazon standard intents, as well as a few custom ones. Look at `HelloWorldIntent` to see how you define a new named intent and provide examples of how your player will invoke it. Next, look into `./lambda/index.js` for the same string, `HelloWorldIntent`, to see how you can add a handler that responds when they do.
+* Pass new information from your skill endpoint to your web app. In `./lambda/index.js` look at the instances of `Alexa.Presentation.HTML.HandleMessage`. This takes an arbitrary JSON blob and sends it to your web app. Try modifying an existing one, or add a new intent that responds with this directive. Now look in `./web/index.js` and notice how `messageReceivedCallback` is registered with the Alexa instance to receive those JSON messages. The sample just prints the message out, but you could try to apply any change to the web app you like! Maybe create an intent that recognizes color and set that color as the CSS property of an element?
+* Plug in a game engine/framework. `./web/index.js` is loaded by the sample in `./web/index.html` as the entry point. You could keep adding to `./web/index.js`, replace it, or add new scripts and elements to the HTML page. If you’ve chosen to use any sort of framework, follow their guide for how to modify these two key single-page-app files.
+* Add more files. You can enrich both the backend and web app with mode content. The salient entry points are:
+    * `./lambda/index.js` adds the `handler` property to the `exports` object, which is what lambda will invoke to handle requests. As long as you end up with a similar file, exporting the same property, it’ll work. The entire `./lambda` folder will be uploaded by ask-cli to your aws account as a single zip file. Keep the total size of this trim, to keep iteration time low!
+    * `./web/html` is currently specified as the web app to load, via the `Alexa.Presentation.HTML.Start` directive in the endpoint code. You can modify this if need be. Otherwise, that HTML page loads `./web/index.js`, which you could generate from other sources instead.
+    * You can add any other asset files for your web app to the `./web` directory, all of which will be synchronized with your S3 bucket by the `deploy-webapp.js` script. That uses aws cli’s sync command, which functions roughly like rsync, using hashes to avoid redundant uploads. The total number of files and how often they change will affect your iteration time, but not necessarily the size of the files.
+
+
 ### Is this sample production ready?
 
 If you begin a project from this sample and intent to take it all the way to production, you'll need to make various upgrades based on how your project evolves. Things to consider:
