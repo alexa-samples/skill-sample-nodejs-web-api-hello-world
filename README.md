@@ -4,6 +4,12 @@ This is minimal sample of using the Alexa Web API for Games feature. It is laid 
 
 ## How to deploy this sample
 - modify `ask-resources.json` and or `package.json` as described below to accomodate your ask profile configuration
+- ensure that the AWS profile you intend to use has sufficient permissions to deploy the infrastructure for this skill. If you are using an IAM Role or IAM User, make sure they have full permission to modify:
+  - Cloudformation, used to generate the infrastructure
+  - Lambda, to act as the compute backend for the skill
+  - Cloudwatch, to create logging targets for the Lambda
+  - S3, to host the web app
+  - IAM, used to create roles to limit the relationships between the above resources
 - use `npm run deploy` to initially build and deploy:
   - the skill (to the Amazon developer portal), 
   - the skill backend (to AWS Lambda), and 
