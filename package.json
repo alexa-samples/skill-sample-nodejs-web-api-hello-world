@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "web-api-hello-world",
+  "name": "@amzn/web-api-hello-world",
   "author": "Amazon Alexa",
   "license": "SEE LICENSE in LICENSE",
   "description": "A deploy ready sample of using the Alexa Web API For Games",
