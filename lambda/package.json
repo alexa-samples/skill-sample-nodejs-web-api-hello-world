@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "@amzn/web-api-hello-world-lambda",
+  "name": "web-api-hello-world-lambda",
   "author": "Amazon Alexa",
   "license": "SEE LICENSE in LICENSE",
   "description": "lambda endpoint for the web-api-hello-world",
